@@ -1,5 +1,5 @@
 import { SetStateAction, useState } from 'react';
-import { Image, StyleSheet,View,Text, Button, TextInput} from 'react-native';
+import { Image, StyleSheet,View,Text, Button, TextInput ,ScrollView} from 'react-native';
 
 
 export default function HomeScreen() {
@@ -51,15 +51,18 @@ export default function HomeScreen() {
 
              <Button title='Submit' onPress={addGoalHandler} />
           </View>
-
-          <View style={styles.goalsContainer}>
+            
+            <View style={styles.goalsContainer}>
+          <ScrollView >
               {courseGoals.map((goal)=> (
                 <View  style={styles.goalItem} key={goal}>
-                <Text>
+                <Text style={styles.goalText}>
                   {goal}
                   </Text>
                 </View>
                   ))}
+          </ScrollView>
+
           </View>
       </View>
   );
@@ -107,9 +110,11 @@ const styles = StyleSheet.create({
       padding:8,
       borderRadius:8,
       backgroundColor:'#5e0acc',
-      color:'white',
-
+      
 
   },
+  goalText:{
+    color:'white'
+  }
   
 });
